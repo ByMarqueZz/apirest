@@ -20,7 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('v1/books', BookV1::class)
-      ->only(['index','show', 'destroy'])
+      ->only(['index','show', 'destroy', 'update'])
       ->middleware('auth:sanctum');
 
 Route::post('login', [App\Http\Controllers\Api\LoginController::class, 'login']);
+Route::put('v1/books/update?id&title&description', [App\Http\Controllers\Api\V1\BookController::class, 'update'])
+      ->middleware('auth:sanctum');
