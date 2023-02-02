@@ -24,5 +24,3 @@ Route::apiResource('v1/books', BookV1::class)
       ->middleware('auth:sanctum');
 
 Route::post('login', [App\Http\Controllers\Api\LoginController::class, 'login']);
-Route::put('v1/books/update?id&title&description', [App\Http\Controllers\Api\V1\BookController::class, 'update'])
-      ->middleware('auth:sanctum');
